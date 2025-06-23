@@ -1,0 +1,1 @@
+/usr/bin/c++ -fdiagnostics-color=always -std=c++11 -pthread -O3 -g -march=native -fPIC -rdynamic CMakeFiles/test0.dir/src/test/test0.cpp.o -o /home/mishan/Documents/CSE576/hw1/test0  -Wl,-rpath,/home/mishan/Documents/CSE576/hw1/build libuwimg++.so -lm -lstdc++ 

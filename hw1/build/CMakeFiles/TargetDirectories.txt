@@ -1,0 +1,4 @@
+/home/mishan/Documents/CSE576/hw1/build/CMakeFiles/uwimg++.dir
+/home/mishan/Documents/CSE576/hw1/build/CMakeFiles/test0.dir
+/home/mishan/Documents/CSE576/hw1/build/CMakeFiles/edit_cache.dir
+/home/mishan/Documents/CSE576/hw1/build/CMakeFiles/rebuild_cache.dir

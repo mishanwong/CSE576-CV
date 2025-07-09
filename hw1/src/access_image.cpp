@@ -21,9 +21,7 @@ float get_clamped_pixel(const Image& im, int x, int y, int ch)
   x = get_bound(x, im.w);
   y = get_bound(y, im.h);
   ch = get_bound(ch, 3);
-  // std::cout << "x: " << x << " y: " << y << " ch: " << ch << std::endl;
   int loc = pixel_address(im, x, y, ch);
-  // std::cout << "pixel loc: " << loc << std::endl;
   return im.data[loc];
   }
 

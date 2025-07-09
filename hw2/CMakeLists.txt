@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.15)
 
 project(cse576-2020sp-HW2)
 
@@ -24,6 +24,8 @@ add_library(uwimg++ SHARED
  
 link_libraries(uwimg++ m stdc++)
 
+add_compile_options(-Wno-int-in-bool-context)
+add_compile_options(-Wint-in-bool-context)
 
 add_executable(test0 src/test/test0.cpp)
 add_executable(test1 src/test/test1.cpp)

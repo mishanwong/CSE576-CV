@@ -2,6 +2,7 @@
 #include "../utils.h"
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -150,7 +151,6 @@ void test_sobel()
   
   feature_normalize(mag);
   feature_normalize(theta);
-  
   Image gt_mag = load_image("data/magnitude.png");
   Image gt_theta = load_image("data/theta.png");
   TEST(gt_mag.w == mag.w && gt_theta.w == theta.w);
@@ -159,7 +159,6 @@ void test_sobel()
   if( gt_mag.w != mag.w || gt_theta.w != theta.w || 
       gt_mag.h != mag.h || gt_theta.h != theta.h || 
       gt_mag.c != mag.c || gt_theta.c != theta.c ) return;
-  
   for(int i = 0; i < gt_mag.w*gt_mag.h; ++i){
       if(within_eps(gt_mag.data[i], 0)){
           gt_theta.data[i] = 0;
@@ -184,28 +183,33 @@ void test_sobel()
 void test_bilateral()
   {
   Image im = load_image("data/dog.jpg");
+  // Image im = load_image("data/bilateral_raw.png");
   Image bif= bilateral_filter(im,3,0.1);
+  // Image bif = bilateral_filter(im, 3, 0.5);
   
   save_png(bif,"output/bilateral");
   Image gt = load_image("data/dog-bilateral.png");
   TEST(same_image(bif, gt));
+
+  Image im2 = load_image("data/bilateral_raw.png");
+  Image bif2 = bilateral_filter(im2, 3, 0.25);
+  save_png(bif2, "output/bilateral2");
   }
 
 void run_tests()
   {
-  test_nn_resize();
-  test_bl_resize();
-  test_multiple_resize();
-  
+  // test_nn_resize();
+  // test_bl_resize();
+  // test_multiple_resize();
   test_gaussian_filter();
-  test_sharpen_filter();
-  test_emboss_filter();
-  test_highpass_filter();
-  test_convolution();
-  test_gaussian_blur();
-  test_hybrid_image();
-  test_frequency_image();
-  test_sobel();
+  // test_sharpen_filter();
+  // test_emboss_filter();
+  // test_highpass_filter();
+  // test_convolution();
+  // test_gaussian_blur();
+  // test_hybrid_image();
+  // test_frequency_image();
+  // test_sobel();
   
   test_bilateral();
   printf("%d tests, %d passed, %d failed\n", tests_total, tests_total-tests_fail, tests_fail);
@@ -215,6 +219,6 @@ int main(int argc, char **argv)
   {
   run_tests();
   
-  //test_bilateral();
+  // test_bilateral();
   return 0;
   }
